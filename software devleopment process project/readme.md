@@ -1,3 +1,6 @@
+nov-dec 2023 
+software development process
+
 โปรเจคที่ทำในวิชา software development process
 โปรเจคนี้เน้นพัฒนาเพื่อแก้ปัญหาตาม user requirement
 
