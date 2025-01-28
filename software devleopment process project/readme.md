@@ -1,4 +1,4 @@
-nov-dec 2023 
+NOV-DEC 2023 
 software development process
 
 โปรเจคที่ทำในวิชา software development process
