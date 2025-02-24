@@ -1,0 +1,38 @@
+{% extends 'bar.html' %}
+
+{% block title %}Artists{% endblock %}
+
+{% block content %}
+    <div class="container mt-5">
+        <h1>Edit Track</h1>
+        <form method="POST">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" name="name" id="name" class="form-control" value="{{ track['name'] }}" required>
+            </div>
+            <div class="form-group">
+                <label for="duration">Duration</label>
+                <input type="text" name="duration" id="duration" class="form-control" value="{{ track['duration'] }}" required>
+            </div>
+            <div class="form-group">
+                <label for="album_id">Album</label>
+                <select name="album_id" id="album_id" class="form-control" required>
+                    {% for album in albums %}
+                        <option value="{{ album['id'] }}" {% if album['id'] == track['album'] %} selected {% endif %}>{{ album['name'] }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="play_count">Play Count</label>
+                <input type="number" name="play_count" id="play_count" class="form-control" value="{{ track['play_count'] }}" required>
+            </div>
+            <div class="form-group">
+                <label for="release_date">Release Date</label>
+                <input type="text" name="release_date" id="release_date" class="form-control" value="{{ track['release_date'] }}" required>
+            </div>
+            <div class="d-flex justify-content-between">
+                <button type="submit" class="btn btn-primary">Update Track</button>
+                <a href="{{ url_for('track_details', track_id=track['id']) }}" class="btn btn-secondary mt-3">Cancel</a>
+            </div>
+        </form>
+{% endblock %}

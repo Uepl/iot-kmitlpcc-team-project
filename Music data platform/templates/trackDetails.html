@@ -1,0 +1,31 @@
+{% extends 'bar.html' %}
+
+{% block title %}Artists{% endblock %}
+
+{% block content %}
+    <div class="container mt-5">
+        <h1>Track Details</h1>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Track Name</th>
+                    <th>Album Name</th>
+                    <th>Artist Name</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{ track['id'] }}</td>
+                    <td>{{ track['TrackName'] }}</td>
+                    <td>{{ track['AlbumName'] }}</td>
+                    <td>{{ track['ArtistName'] }}</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <a href="{{ url_for('delete_track', track_id=track['id']) }}" class="btn btn-danger mt-3">Delete Track</a>
+        <a href="{{ url_for('editTrack', track_id=track['id']) }}" class="btn btn-warning mt-3">Edit Track</a>
+        <a href="{{ url_for('artistTrack', artist_id=track['ArtistID'] )}}" class="btn btn-secondary mt-3">Back to Artist's track</a>
+    </div>
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'bar.html' %}
+
+{% block title %}Artists{% endblock %}
+
+{% block content %}
+  <div class="container mt-5">
+    <h1>Edit Record</h1>
+    <form method="POST">
+        <div class="form-group">
+            <label for="record">Record</label>
+            <input type="text" name="record" id="record" class="form-control" value="{{ records['id'] }}" required>
+        </div>
+        <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" name="name" id="name" class="form-control" value="{{ records['name'] }}" required>
+        </div>
+        <div class="d-flex justify-content-between">
+          <button type="submit" class="btn btn-danger">Update Record</button>
+          <a href="{{ url_for('records') }}" class="btn btn-secondary mt-3">Cancel</a>
+        </div>
+    </form>
+{% endblock %}

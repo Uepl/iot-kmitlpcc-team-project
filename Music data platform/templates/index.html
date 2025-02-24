@@ -1,0 +1,35 @@
+{% extends 'bar.html' %}
+
+{% block title %}Artists{% endblock %}
+
+{% block content %}
+    <h1>Artists</h1>
+    <a href="{{ url_for('add_artist') }}" class="btn btn-primary mb-3">Add Artist</a>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Record</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for artist in artists %}
+            <tr>
+                <td>{{ artist['ArtistId'] }}</td>
+                <td>{{ artist['ArtistName'] }}</td>
+                <td>{{ artist['RecordLabel'] }}</td>
+                <td>
+
+                    <a href="{{ url_for('artistTrack', artist_id=artist['ArtistId']) }}" class="btn btn-sm btn-primary">Track</a>
+                    <a href="{{ url_for('edit_artist', artist_id=artist['ArtistId']) }}" class="btn btn-sm btn-warning">Edit</a>
+                    <a href="{{ url_for('delete_artist', artist_id=artist['ArtistId']) }}" class="btn btn-sm btn-danger">Delete</a>
+                    
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+
+    </table>
+{% endblock %}
